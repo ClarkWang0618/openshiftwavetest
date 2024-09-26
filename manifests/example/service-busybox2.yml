@@ -1,14 +1,15 @@
 apiVersion: v1
-kind: Service
+kind: Pod
 metadata:
-  name: simple-bysybox2
+  name: busybox2
   annotations:
     argocd.argoproj.io/sync-wave: "3"
 spec:
-  type: ClusterIP
-  selector:
-    app: trivial-go-web-app
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
+  containers:
+  - image: busybox
+    command:
+      - sleep
+      - "3600"
+    imagePullPolicy: IfNotPresent
+    name: busybox
+  restartPolicy: Always
