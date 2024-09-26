@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       labels:
-        app: trivial-go-web-app
+        app: trivial-go-db
     spec:
       containers:
       - name: mysql
